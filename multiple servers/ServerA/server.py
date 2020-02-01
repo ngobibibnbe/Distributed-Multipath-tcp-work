@@ -5,6 +5,7 @@ from time import sleep
 
 import hydra
 
+files_dir = os.path.dirname(os.path.realpath(__file__))
 
 class Transfer:
     mysocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -27,7 +28,7 @@ class Transfer:
         send_thread.start()
 
     def forward_file(self, file_name, conn):
-        with open('b.txt', 'rb') as f:
+        with open(os.path.join(files_dir,file_name), 'rb') as f:
             data = f.read(1024)
             conn.send(data)
             while data:
@@ -39,10 +40,10 @@ class Transfer:
             mysocket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
             mysocket.connect(self.peer)
 
-            mysocket.send(file_name)
+            mysocket.send(file_name.encode('utf-8'))
             while True:
                 print('receiving data...')
-                data = self.mysocket.recv(1024)
+                data = mysocket.recv(1024)
                 print(data)
                 if not data:
                     print('break')
@@ -63,6 +64,7 @@ def app(cfg):
     Transfer(host, port, peer_address, peer_port,
              files_list, remote_files_list)
 
+    print(remote_files_list)
 
 if __name__ == "__main__":
     app()

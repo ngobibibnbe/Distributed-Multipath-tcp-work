@@ -1,8 +1,8 @@
-server:
+server: # serveur addresse d'écoute eet port
   address: 0.0.0.0
   port: 8888
-peer: #port et adresse de B
+peer: # serveur addresse et port
   address: localhost
   port: 8887
-files_list: 'b.txt' # liste des fichiers de streaming
-remote_files_list: 'b.txt'   #liste des fichiers de streaming partagé avec B
+files_list: "b.txt,a" # listes des fichiers servis par A
+remote_files_list: "b.txt,a" # liste des fichiers partagés avec B
