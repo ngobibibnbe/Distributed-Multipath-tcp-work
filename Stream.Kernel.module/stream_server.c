@@ -150,18 +150,6 @@ int tcp_server_receive(struct socket *sock, int id, struct sockaddr_in *address,
 
 read_again:
 
-	/*
-        if(kthread_should_stop())
-        {
-                pr_info(" *** mtp | tcp server handle connection thread "
-                        "stopped | tcp_server_receive *** \n");
-                //tcp_conn_handler->thread[id] = NULL;
-                tcp_conn_handler->tcp_conn_handler_stopped[id]= 1;
-                //sock_release(sock);
-                do_exit(0);
-        }
-        */
-
 	if (!skb_queue_empty(&sock->sk->sk_receive_queue))
 		pr_info("recv queue empty ? %s \n",
 				skb_queue_empty(&sock->sk->sk_receive_queue) ? "yes" : "no");
@@ -176,7 +164,6 @@ read_again:
 	pr_info("client-> %s:%d, says: %s\n", tmp, ntohs(address->sin_port), buf);
 
 	kfree(tmp);
-	//len = msg.msg_iter.kvec->iov_len;
 	return len;
 }
 
@@ -583,4 +570,4 @@ static void __exit network_server_exit(void)
 			"network_server_exit *** \n");
 }
 module_init(network_server_init)
-	module_exit(network_server_exit)
+module_exit(network_server_exit)

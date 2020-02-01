@@ -1,4 +1,3 @@
-obj-m += network_client.o 
 obj-m += network_server.o 
 
 all:
