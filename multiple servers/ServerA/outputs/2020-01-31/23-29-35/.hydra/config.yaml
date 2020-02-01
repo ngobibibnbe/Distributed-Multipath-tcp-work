@@ -1,0 +1,8 @@
+files_list: a,b.txt,c
+peer:
+  address: localhost
+  port: 8887
+remote_files_list: b.txt,c
+server:
+  address: 0.0.0.0
+  port: 8888

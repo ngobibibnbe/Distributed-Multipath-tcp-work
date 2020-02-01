@@ -1,0 +1,6 @@
+- server.address=0.0.0.0
+- server.port=8888
+- peer.port=23
+- peer.address=45
+- files_list=a,b,c
+- remote_files_list=b,c

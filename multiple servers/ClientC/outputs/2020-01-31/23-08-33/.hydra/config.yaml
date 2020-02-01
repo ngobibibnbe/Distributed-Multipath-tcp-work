@@ -1,0 +1,4 @@
+file: b
+host: localhost
+outfile: a
+port: 8887

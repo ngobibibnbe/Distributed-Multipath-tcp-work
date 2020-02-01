@@ -1,0 +1,5 @@
+host: localhost # nom de l'hote a
+port: 8887 # nom de l'hote b
+file: b.txt # nom fichier
+outfile: aaaaaa
+

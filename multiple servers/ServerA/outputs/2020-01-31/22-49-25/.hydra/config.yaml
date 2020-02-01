@@ -1,0 +1,5 @@
+files_list: a,b,c
+peer:
+  address: 45
+  port: 23
+remotes_files_list: b,c
