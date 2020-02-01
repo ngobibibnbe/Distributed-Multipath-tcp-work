@@ -2,4 +2,4 @@
 
 
 
-do `make all` a
+do `make all` and `sudo insmod stream_server.ko`
